@@ -105,11 +105,11 @@ static const char *termcmd[]  = { "st", NULL };
 /* Thanks to defining here with a shorthand notation how to execute a command in the shell lower in the file you have to write less and it makes the code more easily readable */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-
+#include "movestack.c"
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },   // open dmenu, by default on the top of the screen (this hotkey was chosen because it is more erconomical if you use the d-key 
-	{ MODKEY,		        XK_Return, spawn,          SHCMD("alacritty") },  // open terminal, terminal is chosen higher in the file
+	{ MODKEY,		        		XK_Return, spawn,          SHCMD("alacritty") },  // open terminal, terminal is chosen higher in the file
 	{ MODKEY,                       XK_b,      togglebar,      {0} },   // toggle show/hide panel
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },// change focus to another window on that workspace
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -117,6 +117,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_e,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },	// change vertical split-ratio between master and stack
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
