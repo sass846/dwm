@@ -169,6 +169,7 @@ static const Key keys[] = {
     { Mod1Mask|ControlMask,              XK_c,      spawn,          SHCMD("chromium") },
     { MODKEY,       		         XK_w,      spawn,          SHCMD("brave") },
     { ControlMask|ShiftMask,	         XK_n,      spawn,	    SHCMD("brave --incognito") }, //open private windows in the Brave browser
+    { Mod1Mask,				 XK_b,	    spawn,	    SHCMD("blueman-manager")}, //open bluetooth manager
     {0,	                XF86XK_AudioRaiseVolume,    spawn,          {.v = upvol } }, //increase audio volume, you muse use PulseAudio for this to work / arrow up
     {0,		        XF86XK_AudioLowerVolume,    spawn,          {.v = downvol } }, //decrease audio-volume / arrow down
     {0,		        XF86XK_AudioMute,	    spawn,          {.v = mutevol } }, 
