@@ -6,7 +6,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int gappx     = 10;        /* gaps between windows */
+static const unsigned int gappx     = 15;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -48,8 +48,8 @@ static const char *brighter[] = { "brightnessctl", "set", "10%+", NULL };
 static const char *dimmer[]   = { "brightnessctl", "set", "10%-", NULL };
 
 /*audio control*/
-static const char *upvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL};
-static const char *downvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "-5%", NULL};
+static const char *upvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "+10%", NULL};
+static const char *downvol[] = {"/usr/bin/pactl", "set-sink-volume", "0", "-10%", NULL};
 static const char *mutevol[] = {"/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL};
 
 /* tagging */
@@ -117,7 +117,8 @@ static const char *termcmd[]  = { "st", NULL };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },   // open dmenu, by default on the top of the screen (this hotkey was chosen because it is more erconomical if you use the d-key 
-	{ MODKEY,		        		XK_Return, spawn,          SHCMD("alacritty") },  // open terminal, terminal is chosen higher in the file
+	{ MODKEY,			XK_Return, spawn,          SHCMD("alacritty") },  // open terminal, terminal is chosen higher in the file
+	{ ControlMask,			XK_Return, spawn,          SHCMD("alacritty") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },   // toggle show/hide panel
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },// change focus to another window on that workspace
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -127,7 +128,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_plus, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
