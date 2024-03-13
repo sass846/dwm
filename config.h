@@ -118,7 +118,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },   // open dmenu, by default on the top of the screen (this hotkey was chosen because it is more erconomical if you use the d-key 
 	{ MODKEY,			XK_Return, spawn,          SHCMD("alacritty") },  // open terminal, terminal is chosen higher in the file
-	{ Mod1Mask,			XK_Return, spawn,          SHCMD("alacritty") },
+	{ ControlMask,			XK_Return, spawn,          SHCMD("alacritty") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },   // toggle show/hide panel
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },// change focus to another window on that workspace
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -166,7 +166,6 @@ static const Key keys[] = {
     { Mod1Mask,				 XK_t,      spawn,          SHCMD("telegram-desktop") },
     { Mod1Mask|ControlMask,              XK_t,      spawn,          SHCMD("thunderbird") },
     { Mod1Mask|ControlMask,              XK_n,      spawn,          SHCMD("notepadqq") },
-    { MODKEY|ShiftMask,			 XK_r,	    spawn	    SHCMD("/opt/resolve/bin/resolve")},
     { Mod1Mask|ControlMask,              XK_q,      spawn,          SHCMD("qpdfview") },
     { Mod1Mask|ControlMask,              XK_c,      spawn,          SHCMD("chromium") },
     { MODKEY,       		         XK_w,      spawn,          SHCMD("brave") },
@@ -178,8 +177,7 @@ static const Key keys[] = {
     {0,		        XF86XK_AudioLowerVolume,    spawn,          {.v = downvol } }, //decrease audio-volume / arrow down
     {0,		        XF86XK_AudioMute,	    spawn,          {.v = mutevol } }, 
     {MODKEY,				 0xff56,    spawn,          SHCMD("shutdown now")},
-    {MODKEY|ShiftMask,			 XK_w,	    spawn,	    SHCMD("/home/stryder/connect-wifi.sh") },	
-    {Mod1Mask|ShiftMask,		 XK_w,	    spawn,	    SHCMD("networkmanager_dmenu")},
+    {MODKEY|ShiftMask,			 XK_w,	    spawn,	    SHCMD("/home/stryder/connect-wifi.sh") },		
     {MODKEY,				 0xff55,    spawn,	    SHCMD("reboot")},
     {0,		                         0xff61,      spawn,        SHCMD("/home/stryder/screenshot.sh")},
     {MODKEY|ShiftMask,			 XK_s,	    spawn,	    SHCMD("/home/stryder/screenshotsel.sh")},
