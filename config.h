@@ -166,6 +166,8 @@ static const Key keys[] = {
     { Mod1Mask,				 XK_t,      spawn,          SHCMD("telegram-desktop") },
     { Mod1Mask|ControlMask,              XK_t,      spawn,          SHCMD("thunderbird") },
     { Mod1Mask|ControlMask,              XK_n,      spawn,          SHCMD("notepadqq") },
+    { MODKEY|ShiftMask,                  XK_r,      spawn,          SHCMD("/opt/resolve/bin/resolve") },
+
     { Mod1Mask|ControlMask,              XK_q,      spawn,          SHCMD("qpdfview") },
     { Mod1Mask|ControlMask,              XK_c,      spawn,          SHCMD("chromium") },
     { MODKEY,       		         XK_w,      spawn,          SHCMD("brave") },
@@ -178,7 +180,8 @@ static const Key keys[] = {
     {0,		        XF86XK_AudioMute,	    spawn,          {.v = mutevol } }, 
     {MODKEY,				 0xff56,    spawn,          SHCMD("shutdown now")},
     {MODKEY|ShiftMask,			 XK_w,	    spawn,	    SHCMD("/home/stryder/connect-wifi.sh") },		
-    {MODKEY,				 0xff55,    spawn,	    SHCMD("reboot")},
+   {Mod1Mask|ShiftMask,			 XK_w,	    spawn,	    SHCMD("networkmanager_dmenu") },		
+  {MODKEY,				 0xff55,    spawn,	    SHCMD("reboot")},
     {0,		                         0xff61,      spawn,        SHCMD("/home/stryder/screenshot.sh")},
     {MODKEY|ShiftMask,			 XK_s,	    spawn,	    SHCMD("/home/stryder/screenshotsel.sh")},
     {ControlMask|Mod1Mask,               XK_s,      spawn,          SHCMD("steam")},
